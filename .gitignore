@@ -55,6 +55,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+**/INC_SYMLINK/
 
 # External tool builders
 .externalToolBuilders/
