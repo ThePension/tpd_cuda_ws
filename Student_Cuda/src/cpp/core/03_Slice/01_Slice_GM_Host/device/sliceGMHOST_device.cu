@@ -1,8 +1,5 @@
-#include "Thread2D.cu.h"
-#include "Thread1D.cu.h"
-#include "cudas.h"
-
 #include <stdio.h>
+#include <Thread2D.cu.h>
 
 /*----------------------------------------------------------------------*\
  |*			Declaration 					*|
@@ -30,22 +27,17 @@ __global__ void reductionIntraThreadGMHOST(float* tabGM , int nbSlice)
     {
     const int NB_THREAD = Thread2D::nbThread();
     const int TID = Thread2D::tid();
+    const float DX = 1.f / nbSlice;
 
     int s = TID;
-
-    float xs;
-    float sumThread = 0;
-
+    float sum = 0.f;
     while (s < nbSlice)
 	{
-	xs = s * DX;
-	sumThread += f(xs);
-
+	sum += f(s * DX);
 	s += NB_THREAD;
 	}
 
-    tabGM[TID] = sumThread;
-
+    tabGM[TID] = sum;
 
     // Conseils :
     //
@@ -62,7 +54,7 @@ __global__ void reductionIntraThreadGMHOST(float* tabGM , int nbSlice)
 
 __device__ float f(float x)
     {
-    return 4.0f / (1 + x * x);
+    return 4.f / (1.f + x * x);
     }
 
 /*----------------------------------------------------------------------*\

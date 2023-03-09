@@ -1,12 +1,9 @@
 #include "SliceGMHOST.h"
 
-#include <iostream>
 #include <assert.h>
-
-#include "GM.h"
-#include "Maths.h"
-#include "Hardware.h"
-#include "Kernel.h"
+#include <GM.h>
+#include <GM_MemoryManagement.h>
+#include <iostream>
 
 using std::cout;
 using std::endl;
@@ -27,7 +24,7 @@ extern __global__ void reductionIntraThreadGMHOST(float* tabGM,int nbSlice);
  \*---------------------------------------------------------------------*/
 
 /*--------------------------------------*\
- |*		Constructeur			*|
+ |*		Constructeur		*|
  \*-------------------------------------*/
 
 SliceGMHOST::SliceGMHOST(Grid grid , int nbSlice , double* ptrPiHat , bool isVerbose) :
@@ -38,17 +35,13 @@ SliceGMHOST::SliceGMHOST(Grid grid , int nbSlice , double* ptrPiHat , bool isVer
     {
     // ntabGM
 	{
-	this->nTabGM = 1.0f / nbSlice; // TODO SliceGMHOST
-
-	// Warning : Advanced : Et si plus de threads que slices? complique! (pas utile de le coder)
+	this->nTabGM = grid.threadCounts();
 	}
 
     // MM
 	{
-	this->sizeTabGM = nbSlice * sizeof(float);//  TODO SliceGMHOST // [octet]
-
-	GM::malloc(&tabGM, this->sizeTabGM);
-	GM::malloc(&ptrPiHat, sizeof(float));
+	this->sizeTabGM = nTabGM * sizeof(float);
+	GM::malloc(&tabGM, sizeTabGM);
 	}
     }
 
@@ -56,9 +49,7 @@ SliceGMHOST::~SliceGMHOST(void)
     {
     //MM (device free)
 	{
-	// TODO SliceGMHOST
-	free(tagGM);
-	free(ptrPiHat);
+	GM::free(tabGM);
 	}
     }
 
@@ -80,9 +71,7 @@ SliceGMHOST::~SliceGMHOST(void)
  */
 void SliceGMHOST::run()
     {
-    // TODO SliceGMHOST // call the kernel
-    reductionIntraThreadGMHOST<<<grid.dg, grid.db>>>(tabGM, nbSlice)
-
+    reductionIntraThreadGMHOST<<<dg, db>>>(tabGM, nTabGM);
     reductionHost();
     }
 
@@ -95,12 +84,19 @@ void SliceGMHOST::run()
  */
 void SliceGMHOST::reductionHost()
     {
-    // 1) Creer un tableau de bonne dimension (sur la pile, possible ssi petit, sinon sur la tas)
-    // 2) Transferer la tabGM dedans
-    // 3) Reduction sequentiel cote host
-    // 4) finalisation du calcul de ptrPiHat
+    float* tab = new float[sizeTabGM];
+    GM::memcpyDToH(tab, tabGM, sizeTabGM);
 
-    // TODO SliceGMHOST
+    float sum = 0.f;
+
+//#pragma omp parallel for reduction(+:sum)
+    for (size_t i = 0; i < nTabGM; i++)
+	{
+	sum += tab[i];
+	}
+
+    *ptrPiHat = sum / nTabGM;
+    delete[] tab;
     }
 
 /*----------------------------------------------------------------------*\

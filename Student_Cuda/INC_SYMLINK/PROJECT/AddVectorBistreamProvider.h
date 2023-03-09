@@ -1,1 +1,1 @@
-/home/arc1/CUDA/toStudent/code/WCudaStudent/Student_Cuda/src/cpp/core/05_addvector_stream/03_bistream/use/AddVectorBistreamProvider.h
+/home/arc3/Documents/WCudaStudent/Student_Cuda/src/cpp/core/05_addvector_stream/03_bistream/use/AddVectorBistreamProvider.h

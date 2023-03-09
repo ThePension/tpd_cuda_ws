@@ -1,14 +1,13 @@
 #include "SliceGmHostUse.h"
 
-#include "SliceGMHOST.h"
-#include "SliceNumber.h"
-
-#include "Maths.h"
-#include "Hardware.h"
-
-#include <iostream>
-#include <iomanip>
 #include <assert.h>
+#include <Hardware.h>
+#include <Maths.h>
+#include <iomanip>
+#include <iostream>
+
+#include "../../SliceNumber.h"
+#include "../host/SliceGMHOST.h"
 
 using std::cerr;
 using std::cout;
