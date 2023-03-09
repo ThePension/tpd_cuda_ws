@@ -1,0 +1,74 @@
+#################
+# Target       #
+#################
+
+# NVCCFLAGS
+# https://developer.nvidia.com/cuda-gpus
+#
+########
+# sm_1X		FERMI
+########
+#
+# Quadro Fx4600 : 				sm_10 
+# Quadro nvs140M : 				sm_11 
+# GTX_295 : 					sm_13
+#
+########
+# sm_2X		TESSLA
+########
+#  
+# GTX 580					 	sm_20
+# Tesla m2090					sm_20
+# Quadro6000					sm_20
+# Quadroplex 7000				sm_20
+#
+########
+# SM_3X		 KEPPLER
+########
+#
+# GTX 680						sm_30
+# k5000							sm_30
+# tk1							sm_32
+# Tesla k20c					sm_35
+# Gforce titan					sm_35
+# k6000							sm_35
+#
+########
+# SM_5X 	MAXWELL
+########
+#
+# GeForce GTX 980				sm_52
+# M6000							sm_52
+# tx1							sm_53
+# nano							sm_53
+#
+########
+# SM_6X		PASCAL
+########
+# 
+# GTX 1080						sm_61					
+# P6000							sm_62
+# TITAN X						sm_61
+# TITAN XP						sm_61
+# tx2							sm_62					
+#
+########
+# SM_7X 	VOLTA
+#########
+#
+# TITAN V 						sm_70
+# xavier						sm_72
+#
+########
+# SM_7X 	Turing (Volta + raytracing)
+#########
+#
+# GeForce RTX 2080Ti			sm_75
+# TITAN RTX						sm_75
+#
+########
+# SM_8x		AMPERE
+#########
+#
+#
+#

@@ -1,0 +1,1 @@
+Aucune partie device specifique, on utilise la classe Montecarlo, qui , elle, fait le job cote device

@@ -1,0 +1,1 @@
+/home/bilat/CBI/Dropbox/01_CBI_CODE/Cuda/WCudaStudent/Student_OMP_Image/src/core/02_Mandelbrot/a_animable/Mandelbrot.h

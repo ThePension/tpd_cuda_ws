@@ -1,0 +1,1 @@
+/opt/api/cbi/infographie/image/305/Bilat_Image_GL/INC/common/Image_I.h

@@ -1,0 +1,1 @@
+/home/bilat/CBI/Dropbox/01_CBI_CODE/Cuda/WCudaStudent/Student_Cuda_Image/src/cpp/test/unit/02_Test_Mandelbrot/TestMandelbrot.h

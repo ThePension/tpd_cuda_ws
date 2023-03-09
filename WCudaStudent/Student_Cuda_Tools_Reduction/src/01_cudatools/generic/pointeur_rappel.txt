@@ -1,0 +1,67 @@
+ 			// Rappel : basique type et variable
+		    //
+		    //		int f(int x) 		// prototype de f: 	on donne le type (int) et on donne le nom de variable (x)
+		    //	    		{
+		    //				return x*x;
+		    //				}
+		    //
+		    //      void use()
+		    //			{
+		    //			int x=1;
+		    //
+		    //			// x 	est la variable
+		    //			// int 	est le type
+		    //
+		    //			int y=f(x);	// utilisation de f: 	 on donne la variable only (x)
+		    //			}
+
+		    // Rappel 1 : pointeur fonction
+		    //
+		    //		int add(int x, int y)	// est de type int (*)(int,int)
+		    //	    		{
+		    //				return x+y;
+		    //				}
+		    //
+		    //		int mult(int x, int y)	// est de type int (*)(int,int)
+		    //	    		{
+		    //				return x*y;
+		    //				}
+		    //
+		    //		int reduceV1( int (*OP)(int,int), int x, int y) // on donne le type et le nom de variable, y compris pour pointeur fonction
+		    //	    		{
+		    //				// int (*OP)(int,int)     type et nom de variable
+		    //				// OP	         	  	  variable
+		    //				// int (*)(int,int)       type
+		    //
+		    //				return OP(x,y); // on utilise ici les variables! OP est une variable, x et y aussi!
+		    //				}
+		    //
+		    //          void use1()
+		    //				{
+		    //				int x=1;
+		    //                 int y=2;
+		    //
+		    //				int zAdd=reduceV1(add,x,y);	// utilisation de reduce, on donne variable only, ie add, x et y , mais surtout pas type!
+		    //					       					// Le nom d'une fonction est un pointeur vers le code la fonction,
+		    //											// comme le nom d'un tableau est un pointeur vers la première case du tableau
+		    //
+		    //   			int zMult=reduceV1(mult,x,y);	// utilisation de reduce, on donne, comme a toute utilisation les variables seulement.
+		    //				}
+
+		    // Rappel 2: pointeur fonction
+		    //
+		    //		#define binaryOperator(name) int (*name)(int,int)
+		    //
+		    //	      //int reduceV1(int (*OP)(int,int)  , int x, int y)
+		    //			int reduceV2(binaryOperator(OP), int x, int y)
+		    //	    		{
+		    //				return OP(x,y); // Warning, OP est le nom de la variable
+		    //				}
+		    //
+		    //          void use2()	// idem use ci-dessus use1, aucun changement!
+		    //				{
+		    //				int x=1;
+		    //          	int y=2;
+		    //				int zAdd=reduceV2(add,x,y);	// utilisation de reduce, on donne variable only!
+		    //   			int zMult=reduceV2(mult,x,y);	// utilisation de reduce, on donne variable only!
+		    //				}

@@ -1,0 +1,1 @@
+/opt/cbi/make/013/private/script/install/install_workspace.sh

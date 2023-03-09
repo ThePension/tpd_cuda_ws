@@ -1,0 +1,1 @@
+/opt/cbi/make/013/private/api/version/bilat_capteur_version.mk

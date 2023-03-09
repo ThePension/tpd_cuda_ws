@@ -1,0 +1,1 @@
+/opt/cbi/make/013/private/api/cpp/api_cbi/infographie/cbi_image/bilat_image_freeglut.mk

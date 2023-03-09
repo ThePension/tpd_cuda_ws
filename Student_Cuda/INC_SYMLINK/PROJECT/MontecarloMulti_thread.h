@@ -1,0 +1,1 @@
+/home/arc1/CUDA/toStudent/code/WCudaStudent/Student_Cuda/src/cpp/core/04_Montecarlo/02_Montecarlo_multi/host/01_thread_version/MontecarloMulti_thread.h

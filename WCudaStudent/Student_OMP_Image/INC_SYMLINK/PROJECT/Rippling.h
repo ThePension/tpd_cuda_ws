@@ -1,0 +1,1 @@
+/home/bilat/CBI/Dropbox/01_CBI_CODE/Cuda/WCudaStudent/Student_OMP_Image/src/core/01_Rippling/a_animable/Rippling.h

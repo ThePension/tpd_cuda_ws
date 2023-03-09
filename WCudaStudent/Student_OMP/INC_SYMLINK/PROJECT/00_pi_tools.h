@@ -1,0 +1,1 @@
+/home/bilat/CBI/Dropbox/01_CBI_CODE/Cuda/WCudaStudent/Student_OMP/src/cpp/core/omp/02_Slice/00_pi_tools.h
